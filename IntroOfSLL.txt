@@ -1,0 +1,44 @@
+
+A Linked List is a linear data structure consisting of connected nodes where each node has corresponding data and a pointer to the address of the next node. 
+
+The first node of a linked list is called the Head, and it acts as an access point. On the other hand, the last node is called the Tail, and it marks the end of a linked list by pointing to a NULL value!
+
+Real time scenario
+
+Imagine going to a movie theater along with a large group of friends, only to find out there's no way to book consecutive seats to accommodate all. However, there are plenty of disjoint empty seats for that particular screen. So, you all buy tickets and sit accordingly.
+
+But there's a catch!
+
+Since only you were buying popcorn for all, how would you distribute that to your friends? You can't remember where everyone sat, and it's dark inside the hall.
+
+So, instead of you remembering where everyone sat, if everyone kept track of the next friend's seat, then such reference would help popcorn tubs to traverse up to a friend who's yet to get popcorn. This could be achieved by passing popcorn to the next friend starting from you!
+
+
+
+
+Advantages of Linked List
+Dynamic in nature - Linked lists are dynamic in nature, and their size can be adjusted according to our requirements.
+
+Ease of Insertion and Deletion - Insertion and deletion of a node in a linked list remain efficient as the nodes are stored in random locations, and we only need to update the next pointer of a constant number of nodes.
+
+Memory efficient - Memory consumption of a linked list is efficient as its size can grow or shrink dynamically according to our requirements.
+
+Implementation - Various advanced data structures can be implemented using a linked list vis-a-vis stack, queue, graph, hash maps, etc.
+
+Disadvantages of Linked List
+Memory usage - A node in a linked list occupies more memory than an element in an array as each node occupies at least two kinds of variables.
+
+Accessing a node - If you want to access a node in a linked list, you have to traverse starting from the head. We cannot access any random nodes directly except for the head itself, since nodes don't share a linear order in the physical memory and are only referenced by pointers.
+
+Traversing in reverse order - Traversing in reverse order is difficult. Although a doubly-linked list makes it easier but requires more memory to store those extra 'prev' pointers.
+
+Applications of Linked List
+It would have been futile if a linked list didn't have many applications beyond a mere movie theater use-case.
+
+Here are some of the applications of a linked list:
+
+Linear data structures such as stack, queue, and non-linear data structures such as hash maps, graphs can be implemented using linked lists.
+
+Doubly linked lists are useful for building a forward-backward navigation button in a web browser or undo-redo feature in an editor.
+
+Circular Doubly linked lists can also be used for the implementation of advanced data structures like Fibonacci Heap.
