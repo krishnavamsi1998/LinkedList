@@ -293,6 +293,35 @@ public class SingleLinkedListOperations {
 		// slow would be at mid of the linked list
 		return slow;
 	}
+	
+	//using stack last in first out or esle we can reverse and compare it takes O(1) space
+	//O(n),O(n)
+	
+	boolean isPalidrome() {
+
+		Stack<Node> s = new Stack<>();
+
+		Node temp = head;
+
+		while (temp != null) {
+			s.add(temp);
+			temp = temp.next;
+		}
+		
+		temp = head;
+
+		while (s.size() != 0) {
+
+			if (s.pop().data != temp.data)
+				return false;
+
+			temp = temp.next;
+
+		}
+
+		return true;
+
+	}
 
 	
 
@@ -327,10 +356,10 @@ public class SingleLinkedListOperations {
 		list.insertNode(3);
 		list.insertNode(6);
 		list.insertNode(5);
-		list.insertNode(8);
-		list.insertNode(10);
-		list.insertNode(7);
-		list.insertNode(2);
+		
+		list.insertNode(6);
+		list.insertNode(3);
+		list.insertNode(1);
 
 		list.display();
 		// list.InsertAtFirstNode(6);
@@ -344,10 +373,10 @@ public class SingleLinkedListOperations {
 
 		// list.reverseUsingStack();
 		// list.display();
-		
-		head=list.mergeSort(head);
+		System.out.println(list.isPalidrome());
+		//head=list.mergeSort(head);
 		//list.removeDuplicateInSorted();
-		list.display();
+		
 
 		// list.deleteLastNode();
 
