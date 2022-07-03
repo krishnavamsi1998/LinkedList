@@ -1,5 +1,6 @@
 package linkedList;
 
+import java.util.HashSet;
 import java.util.Stack;
 
 public class SingleLinkedListOperations {
@@ -322,9 +323,32 @@ public class SingleLinkedListOperations {
 		return true;
 
 	}
-
 	
+	//O(n),O(n)
+	
+	void removeDupUnsorted() {
 
+		Node prev = null;
+		Node curr = head;
+
+		HashSet<Integer> set = new HashSet<>();
+
+		while (curr != null) {
+
+			if (set.contains(curr.data))
+				prev.next = curr.next;
+			else {
+				set.add(curr.data);
+				prev = curr;
+
+			}
+			curr = curr.next;
+
+		}
+
+	}
+	
+	
 	// O(n),O(1)
 
 	void display() {
@@ -354,12 +378,12 @@ public class SingleLinkedListOperations {
 
 		list.insertNode(1);
 		list.insertNode(3);
-		list.insertNode(6);
+		list.insertNode(1);
 		list.insertNode(5);
 		
-		list.insertNode(6);
+		list.insertNode(5);
 		list.insertNode(3);
-		list.insertNode(1);
+		list.insertNode(6);
 
 		list.display();
 		// list.InsertAtFirstNode(6);
@@ -373,7 +397,9 @@ public class SingleLinkedListOperations {
 
 		// list.reverseUsingStack();
 		// list.display();
-		System.out.println(list.isPalidrome());
+		//System.out.println(list.isPalidrome());
+		list.removeDupUnsorted();
+		list.display();
 		//head=list.mergeSort(head);
 		//list.removeDuplicateInSorted();
 		
