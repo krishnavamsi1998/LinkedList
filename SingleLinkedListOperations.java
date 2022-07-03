@@ -348,7 +348,48 @@ public class SingleLinkedListOperations {
 
 	}
 	
+	//O(n),O(1)
 	
+	void sortZeroOneTwo() {
+
+		// first count 0,1,2 frequencies
+
+		int n1, n2, n3;
+		n1 = n2 = n3 = 0;
+
+		Node curr = head;
+
+		while (curr != null) {
+			if (curr.data == 0)
+				n1++;
+			if (curr.data == 1)
+				n2++;
+			if (curr.data == 2)
+				n3++;
+			curr = curr.next;
+		}
+
+		// then fill 0 till n1 nodes etc...
+
+		curr = head;
+		while (n1 > 0) {
+			curr.data = 0;
+			curr = curr.next;
+			n1--;
+		}
+		while (n2 > 0) {
+			curr.data = 1;
+			curr = curr.next;
+			n2--;
+		}
+		while (n3 > 0) {
+			curr.data = 2;
+			curr = curr.next;
+			n3--;
+		}
+
+	}
+
 	// O(n),O(1)
 
 	void display() {
@@ -377,13 +418,13 @@ public class SingleLinkedListOperations {
 		// list.insertNode(i);
 
 		list.insertNode(1);
-		list.insertNode(3);
+		list.insertNode(0);
 		list.insertNode(1);
-		list.insertNode(5);
+		list.insertNode(2);
 		
-		list.insertNode(5);
-		list.insertNode(3);
-		list.insertNode(6);
+		list.insertNode(1);
+		list.insertNode(0);
+		list.insertNode(2);
 
 		list.display();
 		// list.InsertAtFirstNode(6);
@@ -398,7 +439,8 @@ public class SingleLinkedListOperations {
 		// list.reverseUsingStack();
 		// list.display();
 		//System.out.println(list.isPalidrome());
-		list.removeDupUnsorted();
+		//list.removeDupUnsorted();
+		list.sortZeroOneTwo();
 		list.display();
 		//head=list.mergeSort(head);
 		//list.removeDuplicateInSorted();
