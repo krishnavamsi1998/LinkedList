@@ -18,7 +18,7 @@ public class DoublyLinkedListOperations {
 
 	static Node head;
 
-	//O(n),O(n)
+	// O(n),O(n)
 	void insert(int data) {
 
 		Node newNode = new Node(data);
@@ -35,7 +35,71 @@ public class DoublyLinkedListOperations {
 		}
 
 	}
-	//O(n)
+
+	// O(1)
+	void insertBegin(int data) {
+		Node newNode = new Node(data);
+
+		if (head != null) {
+
+			newNode.next = head;
+			head.prev = newNode;
+			head = newNode;
+		} else
+			head = newNode;
+
+	}
+
+	// O(n)
+	void deleteLast() {
+		if (head != null) {
+			if (head.next == null)
+				head = null;
+			else {
+
+				Node temp = head;
+				while (temp.next.next != null)
+					temp = temp.next;
+				temp.next = null;
+			}
+		}
+
+	}
+
+	// O(1)
+	void deleteFirst() {
+
+		if (head != null) {
+			if (head.next == null)
+				head = null;
+			else {
+				head.next.prev = null;
+				head = head.next;
+
+			}
+		}
+
+	}
+
+	// O(n)
+	int length() {
+
+		if (head == null)
+			return 0;
+		else {
+			int l = 0;
+
+			Node temp = head;
+			while (temp != null) {
+				l += 1;
+				temp = temp.next;
+			}
+			return l;
+		}
+
+	}
+
+	// O(n)
 	void display() {
 
 		if (head == null)
@@ -43,14 +107,16 @@ public class DoublyLinkedListOperations {
 		else {
 			Node temp = head;
 			Node last = null;
+			System.out.println();
+			System.out.println("in forward direction");
 			while (temp != null) {
 
 				System.out.print(temp.data + "->");
 				last = temp;
 				temp = temp.next;
 			}
-			System.out.println();
-			System.out.println("in reverse direction");
+
+			System.out.println("\nin reverse direction");
 			while (last != null) {
 
 				System.out.print(last.data + "->");
@@ -67,6 +133,13 @@ public class DoublyLinkedListOperations {
 		list.insert(1);
 		list.insert(2);
 		list.insert(3);
+		list.insertBegin(0);
+		list.insertBegin(4);
+		list.display();
+		// System.out.println("\n\nlength: "+list.length());
+
+		// list.deleteFirst();
+
 		list.display();
 
 	}
