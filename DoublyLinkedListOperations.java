@@ -66,9 +66,12 @@ public class DoublyLinkedListOperations {
 
 	}
 
+	
+	
 	// O(1)
 	void deleteFirst() {
-
+	
+		
 		if (head != null) {
 			if (head.next == null)
 				head = null;
@@ -98,6 +101,31 @@ public class DoublyLinkedListOperations {
 		}
 
 	}
+	
+	//O(n/2),O(1)
+	
+	void insertMid(int data) {
+		Node newNode = new Node(data);
+		Node temp = head;
+		int c = 0;
+		if (temp.next != null) {
+			while (c != (length() / 2) - 1) {
+				c++;
+				temp = temp.next;
+			}
+
+			Node nextNode = temp.next;
+			temp.next = newNode;
+			newNode.prev = temp;
+			newNode.next = nextNode;
+			nextNode.prev = newNode;
+		} else {
+			temp.next = newNode;
+			newNode.prev = temp;
+		}
+
+	}
+	
 
 	// O(n)
 	void display() {
@@ -133,14 +161,16 @@ public class DoublyLinkedListOperations {
 		list.insert(1);
 		list.insert(2);
 		list.insert(3);
-		list.insertBegin(0);
-		list.insertBegin(4);
+		list.insert(4);
+		list.insert(5);
+	
 		list.display();
 		// System.out.println("\n\nlength: "+list.length());
 
 		// list.deleteFirst();
-
+		list.insertMid(0);
 		list.display();
+		
 
 	}
 
