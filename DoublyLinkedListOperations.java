@@ -1,5 +1,7 @@
 package linkedList;
 
+import java.util.ArrayList;
+
 public class DoublyLinkedListOperations {
 
 	class Node {
@@ -126,6 +128,36 @@ public class DoublyLinkedListOperations {
 
 	}
 	
+	// O(n2),O(n2)
+
+	ArrayList<ArrayList<Integer>> pairSum(int target) {
+		ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+
+		Node temp = head;
+
+		while (temp != null) {
+			Node temp1 = temp.next;
+			ArrayList<Integer> resList = new ArrayList<>();
+			while (temp1 != null) {
+				int s = temp.data + temp1.data;
+				if (s == target) {
+					resList.add(temp.data);
+					resList.add(temp1.data);
+
+				}
+				temp1 = temp1.next;
+			}
+			if (!resList.isEmpty())
+				list.add(resList);
+
+			temp = temp.next;
+
+		}
+
+		return list;
+
+	}
+	
 
 	// O(n)
 	void display() {
@@ -160,16 +192,17 @@ public class DoublyLinkedListOperations {
 		DoublyLinkedListOperations list = new DoublyLinkedListOperations();
 		list.insert(1);
 		list.insert(2);
-		list.insert(3);
 		list.insert(4);
 		list.insert(5);
+		list.insert(6);
+		list.insert(8);
+		list.insert(9);
 	
 		list.display();
 		// System.out.println("\n\nlength: "+list.length());
 
 		// list.deleteFirst();
-		list.insertMid(0);
-		list.display();
+		System.out.println(list.pairSum(7));
 		
 
 	}
