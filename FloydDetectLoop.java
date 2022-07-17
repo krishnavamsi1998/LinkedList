@@ -12,6 +12,7 @@ class FloydDetectLoop {
         slow=fast=head;
         
         //since we r moving fast 2 times
+        //&& is must since fast!=null is alone not enough
         while(fast!=null && fast.next!=null)
         {
             fast=fast.next.next;
