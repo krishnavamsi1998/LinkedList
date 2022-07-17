@@ -1,3 +1,4 @@
+//O(n),O(n)
 class DetectLoopHashMap {
     //Function to check if the linked list has a loop.
     public static boolean detectLoop(Node head){      
